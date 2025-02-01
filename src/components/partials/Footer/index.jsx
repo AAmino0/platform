@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <footer className="bg-black dark:bg-gray-900 text-white py-10 px-6 lg:px-32">
+    <footer className="bg-orange-100 dark:bg-gray-900 text-secondary dark:text-white py-10 px-6 lg:px-32">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Colonne 1 - Learn & Teach */}
         <div>
@@ -21,9 +21,9 @@ function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3">About Us</h3>
           <ul className="space-y-2">
-            <li><Link to="/about" className="hover:text-orange-500 transition">About</Link></li>
-            <li><Link to="/faqs" className="hover:text-orange-500 transition">FAQs</Link></li>
-            <li><Link to="/privacy-policy" className="hover:text-orange-500 transition">Privacy Policy</Link></li>
+            <li><Link to="/about/about-us" className="hover:text-orange-500 transition">About</Link></li>
+            <li><Link to="/about/faqs" className="hover:text-orange-500 transition">FAQs</Link></li>
+            <li><Link to="/about/privacy-policy" className="hover:text-orange-500 transition">Privacy Policy</Link></li>
           </ul>
         </div>
 
@@ -31,9 +31,9 @@ function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3">Support</h3>
           <ul className="space-y-2">
-            <li><Link to="/help-center" className="hover:text-orange-500 transition">Help Center</Link></li>
-            <li><Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link></li>
-            <li><Link to="/terms-conditions" className="hover:text-orange-500 transition">Terms & Conditions</Link></li>
+            <li><Link to="/support/help-center" className="hover:text-orange-500 transition">Help Center</Link></li>
+            <li><Link to="/support/contact-us" className="hover:text-orange-500 transition">Contact Us</Link></li>
+            <li><Link to="/support/terms-conditions" className="hover:text-orange-500 transition">Terms & Conditions</Link></li>
           </ul>
         </div>
 

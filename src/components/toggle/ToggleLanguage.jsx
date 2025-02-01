@@ -13,7 +13,7 @@ function ToggleLanguage() {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button className="flex items-center space-x-1 px-3 py-2 
+      <Menu.Button className="flex items-center space-x-1 px-1 py-2 
        rounded-md bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
         <span className="text-sm font-medium">{language  === 'FR' ?
          <img src="assets/icons/france.png" className="w-4 h-4"/> : <img src="assets/icons/united-states.png" className="w-4 h-4"/>
@@ -29,7 +29,8 @@ function ToggleLanguage() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-28 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-md shadow-lg focus:outline-none">
+        <Menu.Items className="absolute right-0 mt-2 w-20 bg-white dark:bg-gray-800 border
+         border-gray-200 dark:border-gray-600 rounded-md shadow-lg focus:outline-none">
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (

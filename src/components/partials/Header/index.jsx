@@ -38,8 +38,8 @@ function Header() {
           <Link to="/book-a-session" className="text-gray-800 dark:text-white hover:text-orange-500">
             Book a Session
           </Link>
-          <Link to="/plan-and-pricing" className="text-gray-800 dark:text-white hover:text-orange-500">
-            Plan/Pricing
+          <Link to="/plans-and-pricing" className="text-gray-800 dark:text-white hover:text-orange-500">
+            Plans
           </Link>
           <Link to="/become-a-mentor" className="text-gray-800 dark:text-white hover:text-orange-500">
             Become a Mentor

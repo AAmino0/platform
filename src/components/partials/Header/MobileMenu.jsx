@@ -53,8 +53,8 @@ function MobileMenu() {
                 </Link>
               </li>
               <li>
-                <Link to="/plan-and-pricing" className="text-gray-800 dark:text-white hover:text-orange-500 transition-all" onClick={() => setIsOpen(false)}>
-                  Plan/Pricing
+                <Link to="/plans-and-pricing" className="text-gray-800 dark:text-white hover:text-orange-500 transition-all" onClick={() => setIsOpen(false)}>
+                  Plans
                 </Link>
               </li>
               <li>
