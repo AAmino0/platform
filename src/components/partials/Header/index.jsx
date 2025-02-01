@@ -67,7 +67,7 @@ function Header() {
                   <ul className="flex flex-col p-2">
                     <li>
                       <Link
-                        to="/login"
+                        to="/auth/login"
                         className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 rounded"
                       >
                         Login
@@ -75,7 +75,7 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        to="/register"
+                        to="/auth/register"
                         className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 rounded"
                       >
                         Register
