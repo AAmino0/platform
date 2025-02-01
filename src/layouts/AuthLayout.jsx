@@ -1,22 +1,13 @@
 import React from 'react';
+import Header from '../components/partials/Header';
+import Footer from '../components/partials/Footer';
 
 const AuthLayout = ({ children }) => {
   return (
-    <div className="auth-layout">
-      <header>
-        <nav>
-          {/* Navigation spécifique aux utilisateurs connectés */}
-        </nav>
-      </header>
-      <div className="main-content">
-        <aside>
-          {/* Barre latérale */}
-        </aside>
-        <main>{children}</main>
-      </div>
-      <footer>
-        {/* Footer spécifique aux utilisateurs authentifiés */}
-      </footer>
+    <div className="auth-layout font-poppins">
+      <Header />  {/* Navbar intégré ici */}
+      <main>{children}</main>
+      <Footer />
     </div>
   );
 };

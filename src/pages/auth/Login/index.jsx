@@ -8,6 +8,8 @@ import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import useLogin from "../../../hooks/Auth/useLogin";
+
 
 // Validation Schema avec Yup
 const validationSchema = Yup.object({
@@ -18,45 +20,21 @@ const validationSchema = Yup.object({
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const { login, loading, error } = useLogin();
 
   // Formik Hook
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema,
-    onSubmit: (values) => {
-      // Déclencher le toast de chargement
-      const loadingToast = toast.loading("Processing...", {
-        style: {
-          background: "white",
-          color: "#F97316",
-        },
-        className: "dark:bg-gray-800 dark:text-white",
-      });
+    onSubmit: async (values) => {
 
-      // Simulation d'une requête de 2 secondes
-      setTimeout(() => {
-        toast.dismiss(loadingToast); // Supprime le toast de chargement
-        toast.success("Login successful! Redirecting...", {
-          duration: 2000,
-          style: {
-            background: "#F97316",
-            color: "white",
-          },
-          className: "dark:bg-gray-700 dark:text-white",
-        });
-
-        // Redirection après 2 secondes
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      }, 2000);
+      await login(values.email, values.password);
+      
     },
   });
 
   return (
     <section className="min-h-screen flex items-center justify-center px-6 lg:px-32 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-      {/* Toasts centrés au-dessus du formulaire */}
-      <Toaster position="top-center" reverseOrder={false} />
 
       <motion.div
         initial={{ opacity: 0, y: -30 }}
@@ -92,7 +70,11 @@ function Login() {
 
           {/* Password */}
           <div className="relative">
-            <label className="block text-sm font-medium mb-2">Password</label>
+            <div className="flex items-center justify-between"> 
+              <label className="block text-sm font-medium mb-2">Password</label>
+              <Link to={'/auth/forgot-password'} className="block text-sm font-medium mb-2 text-primary"> Forgot Passowrd ?</Link>
+            </div>
+            
             <div className="flex items-center border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700">
               <span className="p-3">
                 <AiOutlineLock className="text-gray-500 dark:text-gray-400 w-5 h-5" />
@@ -126,7 +108,7 @@ function Login() {
           {/* Submit Button */}
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.95 }}>
             <Button type="submit" className="w-full cursor-pointer bg-orange-500 text-white py-3 rounded-md shadow-md hover:bg-orange-600 transition">
-              Login
+              {loading ? 'Logged in ...' : 'Login'}
             </Button>
           </motion.div>
         </form>

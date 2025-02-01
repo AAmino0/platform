@@ -42,9 +42,9 @@ function Hero() {
         className="lg:w-1/2 mt-16 lg:mt-0 hidden lg:flex ml-24"
       >
         <img
-          src="/assets/images/hero.png" 
+          src="/assets/images/hero.webp" 
           alt="Mentor teaching student"
-          className="w-full max-w-lg"
+          className="w-full max-w-lg rounded-md shadow-sm"
         />
       </motion.div>
       
@@ -56,7 +56,7 @@ function Hero() {
         className="w-full flex justify-center mt-10 lg:hidden"
       >
         <img
-          src="/assets/images/hero.png" 
+          src="/assets/images/hero.webp" 
           alt="Mentor teaching student"
           className="w-3/4 max-w-xs rounded-lg shadow-lg"
         />

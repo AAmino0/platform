@@ -7,6 +7,7 @@ import { AiOutlineMail, AiOutlineLock, AiOutlineUser } from "react-icons/ai";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import useRegister from "../../../hooks/Auth/useRegister";
 
 // Validation Schema avec Yup
 const validationSchema = Yup.object({
@@ -20,30 +21,16 @@ const validationSchema = Yup.object({
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
+  const { register, loading, error } = useRegister();
   const navigate = useNavigate();
 
   // Formik Hook
   const formik = useFormik({
     initialValues: { name: "", email: "", password: "", confirmPassword: "" },
     validationSchema,
-    onSubmit: (values) => {
-      const loadingToast = toast.loading("Processing...", {
-        style: { background: "white", color: "#F97316" },
-        className: "dark:bg-gray-800 dark:text-white",
-      });
+    onSubmit: async(values) => {
 
-      setTimeout(() => {
-        toast.dismiss(loadingToast);
-        toast.success("Account created! Redirecting...", {
-          duration: 2000,
-          style: { background: "#F97316", color: "white" },
-          className: "dark:bg-gray-700 dark:text-white",
-        });
-
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      }, 2000);
+      await register(values.name, values.email, values.password, values.confirmPassword);
     },
   });
 

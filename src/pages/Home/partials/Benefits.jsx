@@ -15,9 +15,9 @@ function Benefits() {
         className="w-full md:w-1/2 flex justify-center"
       >
         <img
-          src="/assets/images/learning.png"
+          src="/assets/images/learning.webp"
           alt="Learning Experience"
-          className="w-full max-w-lg"
+          className="w-full max-w-lg rounded-md shadow-sm"
         />
       </motion.div>
 

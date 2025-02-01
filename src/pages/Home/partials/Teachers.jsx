@@ -15,9 +15,9 @@ function Teachers() {
         className="lg:w-1/2"
       >
         <img
-          src="/assets/images/teacher.png" 
+          src="/assets/images/teacher.webp" 
           alt="Online Teacher"
-          className="w-full max-w-md mx-auto"
+          className="w-full max-w-md mx-auto shadow-sm rounded-md"
         />
       </motion.div>
 

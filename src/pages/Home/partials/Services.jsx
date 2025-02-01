@@ -80,15 +80,15 @@ function Services() {
 }
 
 // Composant pour une carte de service
-function ServiceCard({ title, icon: Icon }) {
+function ServiceCard({ title, icon }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05, rotate: 1 }}
       whileTap={{ scale: 0.95 }}
       className="flex flex-col items-center justify-center p-6 rounded-2xl bg-orange-100 dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all cursor-pointer w-full max-w-xs"
     >
-      <div className="bg-orange-500 p-5 rounded-full text-white flex items-center justify-center">
-        <Icon className="w-12 h-12" />
+      <div className="rounded-full text-white flex items-center justify-center">
+        <img src={icon} className="w-15 h-15" />
       </div>
       <h3 className="mt-4 text-xl font-semibold tracking-wide">{title}</h3>
     </motion.div>
@@ -97,22 +97,22 @@ function ServiceCard({ title, icon: Icon }) {
 
 // Données pour les langues
 const languages = [
-  { title: "English", icon: ChatCircleDots },
-  { title: "Spanish", icon: ChatCircleDots },
-  { title: "Dutch", icon: ChatCircleDots },
-  { title: "French", icon: ChatCircleDots },
-  { title: "Arabic", icon: GlobeHemisphereWest },
-  { title: "More !", icon: ArrowRight },
+  { title: "English", icon: 'assets/icons/united-states.png' },
+  { title: "Spanish", icon: 'assets/icons/spain.png' },
+  { title: "Dutch", icon: 'assets/icons/germany.png' },
+  { title: "French", icon: 'assets/icons/france.png' },
+  { title: "Arabic", icon: 'assets/icons/morocco.png' },
+  { title: "More !", icon: 'assets/icons/right-arrow.png' },
 ];
 
 // Données pour les matières scolaires
 const subjects = [
-  { title: "Mathematics", icon: Atom },
-  { title: "Science", icon: Brain },
-  { title: "History", icon: BookBookmark },
-  { title: "Physics", icon: Compass },
-  { title: "Chemistry", icon: ChalkboardTeacher },
-  { title: "More !", icon: GraduationCap },
+  { title: "Mathematics", icon: 'assets/icons/calculator.png' },
+  { title: "Science", icon: 'assets/icons/science.png' },
+  { title: "History", icon: 'assets/icons/history.png' },
+  { title: "Physics", icon: 'assets/icons/relativity.png' },
+  { title: "Chemistry", icon: 'assets/icons/periodic-table.png' },
+  { title: "More !", icon: 'assets/icons/right-arrow.png' },
 ];
 
 export default Services;
