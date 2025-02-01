@@ -78,12 +78,12 @@ function MobileMenu() {
                     <motion.div className="mt-2 w-full bg-white dark:bg-gray-800 shadow-lg rounded-md">
                       <ul className="flex flex-col p-2">
                         <li>
-                          <Link to="/login" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                          <Link to="/auth/login" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                             Login
                           </Link>
                         </li>
                         <li>
-                          <Link to="/register" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
+                          <Link to="/auth/register" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded">
                             Register
                           </Link>
                         </li>

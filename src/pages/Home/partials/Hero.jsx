@@ -28,7 +28,7 @@ function Hero() {
             <span>Get Started</span>
             <ArrowRightIcon className="w-6 h-6" />
           </Link>
-          <Link to="/register" className="px-8 py-4 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg flex items-center justify-center space-x-2 shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+          <Link to="/auth/register" className="px-8 py-4 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg flex items-center justify-center space-x-2 shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
             <span>Register</span>
           </Link>
         </div>

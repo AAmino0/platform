@@ -26,8 +26,8 @@ function RoutesComponent() {
           <Route path="/" element={<GuestLayout><Home /></GuestLayout>} />
           
           {/* Routes nécessitant une authentification (auth) */}
-          <Route path="/auth/login" element={<AuthLayout><Login /></AuthLayout>} />
-          <Route path="/auth/register" element={<AuthLayout><Register /></AuthLayout>} />
+          <Route path="/auth/login" element={<GuestLayout><Login /></GuestLayout>} />
+          <Route path="/auth/register" element={<GuestLayout><Register /></GuestLayout>} />
           <Route path="/book-a-session" element={<AuthLayout><BookASession /></AuthLayout>} />
           <Route path="/become-a-mentor" element={<AuthLayout><BecomeAMentor /></AuthLayout>} />
           <Route path="/find-a-mentor" element={<AuthLayout><FindAMentor /></AuthLayout>} />

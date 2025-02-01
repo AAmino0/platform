@@ -1,21 +1,21 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 
+// Appliquer le mode sombre immédiatement avant le rendu de React
+const storedMode = localStorage.getItem("darkMode");
+if (storedMode === "true") {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
+
 // Créer le contexte
 const ThemeContext = createContext();
 
 // Provider du contexte
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const storedMode = localStorage.getItem("darkMode");
-    if (storedMode) {
-      setIsDarkMode(storedMode === "true");
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDarkMode(prefersDark);
-    }
-  }, []);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return storedMode === "true";
+  });
 
   useEffect(() => {
     if (isDarkMode) {
