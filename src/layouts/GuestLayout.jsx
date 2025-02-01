@@ -3,7 +3,7 @@ import Header from '../components/partials/Header';
 
 const GuestLayout = ({ children }) => {
   return (
-    <div className="guest-layout">
+    <div className="guest-layout font-poppins">
       <Header />  {/* Navbar intégré ici */}
       <main>{children}</main>
       <footer>
