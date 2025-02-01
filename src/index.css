@@ -1,57 +1,46 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* index.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* Importer Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Raleway:wght@300;400;500;600&display=swap');
 
-/* Appliquer la police Poppins à tout le corps de l'application */
-body {
-  font-family: 'Poppins', sans-serif;
+/* Ajouter des classes personnalisées pour Tailwind V4 */
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
 }
 
-/* Définir des couleurs personnalisées en utilisant les classes de Tailwind */
+
+/* Définir des couleurs personnalisées */
 .text-primary {
-  color: #F97316; /* Couleur orange vif */
+  color: #F97316;
 }
-
 .bg-primary {
-  background-color: #F97316; /* Orange vif */
+  background-color: #F97316;
 }
-
 .text-secondary {
-  color: #4A4A4A; /* Gris foncé */
+  color: #4A4A4A;
 }
-
 .bg-secondary {
-  background-color: #4A4A4A; /* Gris foncé */
+  background-color: #4A4A4A;
 }
-
 .text-accent {
-  color: #FFED4F; /* Jaune clair */
+  color: #FFED4F;
 }
-
 .bg-accent {
-  background-color: #FFED4F; /* Jaune clair */
+  background-color: #FFED4F;
 }
-
-/* Autres couleurs personnalisées */
 .bg-background {
-  background-color: #FFFFFF; /* Blanc */
+  background-color: #FFFFFF;
 }
 
-/* Ajouter une animation de pulsation (si nécessaire) */
+/* Animation de pulsation */
 @keyframes pulse {
-  0% {
-    background-color: #f3f3f3;
-  }
-  50% {
-    background-color: #e0e0e0;
-  }
-  100% {
-    background-color: #f3f3f3;
-  }
+  0% { background-color: #f3f3f3; }
+  50% { background-color: #e0e0e0; }
+  100% { background-color: #f3f3f3; }
 }
-
 .pulse {
   animation: pulse 1.5s infinite ease-in-out;
 }
