@@ -1,8 +1,11 @@
 import React from 'react'
+import Hero from './partials/Hero'
 
 function Home() {
   return (
-    <div>Home</div>
+    <>
+      <Hero />
+    </>
   )
 }
 
