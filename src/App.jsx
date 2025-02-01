@@ -1,5 +1,5 @@
 import React from 'react';
-import RoutesComponent from './routes';  // Renommer l'import pour éviter le conflit
+import RoutesComponent from './routes';
 import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
