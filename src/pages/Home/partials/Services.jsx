@@ -83,9 +83,11 @@ function Services() {
 function ServiceCard({ title, icon }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.05, rotate: 1 }}
+      whileHover={{ scale: 1.04}}
       whileTap={{ scale: 0.95 }}
-      className="flex flex-col items-center justify-center p-6 rounded-2xl bg-orange-100 dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all cursor-pointer w-full max-w-xs"
+      className="flex flex-col items-center justify-center p-6 rounded-2xl
+       bg-orange-100 dark:bg-gray-800 shadow-xl hover:shadow-2xl
+        transition-all cursor-pointer w-full max-w-xs"
     >
       <div className="rounded-full text-white flex items-center justify-center">
         <img src={icon} className="w-15 h-15" />

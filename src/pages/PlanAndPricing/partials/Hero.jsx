@@ -14,7 +14,7 @@ function Hero() {
   return (
     <>
       <section
-        className="min-h-screen text-center items-start justify-center p-4
+        className=" text-center items-start justify-center p-4
                   px-6 lg:px-32 py-20 bg-white dark:bg-gray-900
                   text-primary dark:text-primary"
       >

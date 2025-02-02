@@ -3,14 +3,16 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { FiUpload, FiCamera, FiEdit } from "react-icons/fi";
-import { useAuth } from "../../contexts/AuthContext"; // ✅ Global Auth Context
 import toast, { Toaster } from "react-hot-toast";
+import EditProfileModal from "./EditProfile"; // Import Edit Profile Modal Component
+import { useAuth } from "../../contexts/AuthContext";
+import UpdatePassword from "./UpdatePassowrd";
 
 const Profile = () => {
   const { user, setUser } = useAuth();
   const [image, setImage] = useState(user?.profile || "/assets/images/default-avatar.png");
   const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -33,7 +35,6 @@ const Profile = () => {
       toast.success("Profile picture updated!", {
         style: { background: "#F97316", color: "white" },
       });
-      closeModal();
     } catch (error) {
       toast.error("Failed to update profile picture.");
     } finally {
@@ -41,21 +42,13 @@ const Profile = () => {
     }
   };
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
 
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 transition">
+      <div className="p-5 flex items-start justify-center bg-gray-100 dark:bg-gray-900 transition">
         <motion.div
-          className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-8 w-full max-w-2xl text-center"
+          className="bg-white dark:bg-gray-800 mt-20 shadow-lg rounded-xl p-8 w-full max-w-2xl text-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
@@ -65,16 +58,14 @@ const Profile = () => {
           {/* Profile Picture Section */}
           <div className="mt-6 flex flex-col items-center relative">
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               className="relative w-36 h-36 rounded-full overflow-hidden shadow-lg border-4 border-gray-300 dark:border-gray-600"
             >
               <img src={image} alt="Profile" className="w-full h-full object-cover" />
-              <button
-                onClick={openModal}
-                className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition"
-              >
+              <label className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition cursor-pointer">
                 <FiCamera className="text-lg" />
-              </button>
+                <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
+              </label>
             </motion.div>
           </div>
 
@@ -85,66 +76,22 @@ const Profile = () => {
           </div>
 
           {/* Edit Profile Button */}
-          <button className="mt-6 flex items-center space-x-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
-            <FiEdit className="text-lg" />
-            <span>Edit Profile</span>
-          </button>
+          <div className="flex items-center justify-center">
+            <button
+              className="mt-6 flex justify-center items-center cursor-pointer space-x-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition"
+              onClick={() => setIsEditOpen(true)}
+            >
+              <FiEdit className="text-lg" />
+              <span>Edit Profile</span>
+            </button>
+          </div>
+          
         </motion.div>
       </div>
 
-      {/* Profile Picture Upload Modal */}
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 dark:bg-black bg-gray-100 bg-opacity-50" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <Dialog.Title className="text-lg font-bold text-gray-900 dark:text-white">Update Profile Picture</Dialog.Title>
-                  <div className="mt-4">
-                    <label className="block text-sm text-gray-600 dark:text-gray-300">Choose a new profile picture:</label>
-                    <input type="file" accept="image/*" className="mt-2 w-full" onChange={handleImageUpload} />
-                  </div>
-                  <div className="mt-6 flex justify-end space-x-2">
-                    <button
-                      onClick={closeModal}
-                      className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded-lg"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      onClick={updateProfilePicture}
-                      className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
-                      disabled={loading}
-                    >
-                      {loading ? "Uploading..." : "Save"}
-                    </button>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition>
+      {/* Edit Profile Modal */}
+      <EditProfileModal isOpen={isEditOpen} onClose={() => setIsEditOpen(false)} />
+      <UpdatePassword />
     </>
   );
 };

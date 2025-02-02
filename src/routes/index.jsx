@@ -49,9 +49,9 @@ function RoutesComponent() {
           <Route path="/auth/reset-password" element={<GuestRoute><GuestLayout><ResetPassword /></GuestLayout></GuestRoute>} />
 
           {/* Protected Routes (Only logged-in users can access) */}
-          <Route path="/book-a-session" element={<ProtectedRoute><AuthLayout><BookASession /></AuthLayout></ProtectedRoute>} />
+          <Route path="/book-a-session" element={<GuestRoute><GuestLayout><BookASession /></GuestLayout></GuestRoute>} />
           <Route path="/become-a-mentor" element={<ProtectedRoute><AuthLayout><BecomeAMentor /></AuthLayout></ProtectedRoute>} />
-          <Route path="/find-a-mentor" element={<ProtectedRoute><AuthLayout><FindAMentor /></AuthLayout></ProtectedRoute>} />
+          <Route path="/find-a-mentor" element={<GuestRoute><GuestLayout><FindAMentor /></GuestLayout></GuestRoute>} />
           <Route path="/profile" element={<ProtectedRoute><AuthLayout><Profile /></AuthLayout></ProtectedRoute>} />
 
           {/* Public Pages */}
