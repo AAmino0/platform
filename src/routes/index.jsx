@@ -7,9 +7,10 @@ import GuestRoute from "../components/routes/GuestRoute";
 const Home = React.lazy(() => import("../pages/Home"));
 const Login = React.lazy(() => import("../pages/auth/Login"));
 const Register = React.lazy(() => import("../pages/auth/Register"));
-const BookASession = React.lazy(() => import("../pages/BookASession"));
 const BecomeAMentor = React.lazy(() => import("../pages/BecomeAMentor"));
 const FindAMentor = React.lazy(() => import("../pages/FindAMentor"));
+
+
 const PlanAndPricing = React.lazy(() => import("../pages/PlanAndPricing"));
 const Contact = React.lazy(() => import("../pages/Support/Contact"));
 const HelpCenter = React.lazy(() => import("../pages/Support/HelpCenter"));
@@ -49,7 +50,7 @@ function RoutesComponent() {
           <Route path="/auth/reset-password" element={<GuestRoute><GuestLayout><ResetPassword /></GuestLayout></GuestRoute>} />
 
           {/* Protected Routes (Only logged-in users can access) */}
-          <Route path="/book-a-session" element={<GuestRoute><GuestLayout><BookASession /></GuestLayout></GuestRoute>} />
+         
           <Route path="/become-a-mentor" element={<ProtectedRoute><AuthLayout><BecomeAMentor /></AuthLayout></ProtectedRoute>} />
           <Route path="/find-a-mentor" element={<GuestRoute><GuestLayout><FindAMentor /></GuestLayout></GuestRoute>} />
           <Route path="/profile" element={<ProtectedRoute><AuthLayout><Profile /></AuthLayout></ProtectedRoute>} />

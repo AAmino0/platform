@@ -45,9 +45,6 @@ function Header() {
             <Link to="/find-a-mentor" className="text-gray-800 dark:text-white hover:text-orange-500 transition-all">
               Find a Mentor
             </Link>
-            <Link to="/book-a-session" className="text-gray-800 dark:text-white hover:text-orange-500 transition-all">
-              Book a Session
-            </Link>
             <Link to="/plans-and-pricing" className="text-gray-800 dark:text-white hover:text-orange-500 transition-all">
               Plans
             </Link>

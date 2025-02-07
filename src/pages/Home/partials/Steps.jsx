@@ -50,13 +50,6 @@ function Steps() {
                 viewport={{ once: true }}
                 className="flex justify-center items-center h-16 md:h-auto"
               >
-                {/* Flèche vers le bas sur mobile, vers la droite sur desktop */}
-                <div className="block md:hidden">
-                  <TbArrowBigDownLines className="w-12 h-12 text-orange-500 dark:text-orange-400" />
-                </div>
-                <div className="hidden md:block">
-                  <TbArrowBigRightLines className="w-12 h-12 md:w-14 md:h-14 text-orange-500 dark:text-orange-400" />
-                </div>
               </motion.div>
             )}
           </div>

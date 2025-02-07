@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 function Hero() {
   return (
@@ -26,7 +25,7 @@ function Hero() {
         <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
           <Link to="/find-a-mentor" className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg flex items-center justify-center space-x-2 shadow-lg hover:bg-orange-600 transition">
             <span>Get Started</span>
-            <ArrowRightIcon className="w-6 h-6" />
+          
           </Link>
           <Link to="/auth/register" className="px-8 py-4 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg flex items-center justify-center space-x-2 shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
             <span>Register</span>
